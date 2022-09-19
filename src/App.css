@@ -3,6 +3,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 300px 600px 400px;
+  box-sizing: border-box;
 }
 
 body {
@@ -10,6 +11,7 @@ body {
   justify-content: center;
   background-color: #000000;
   color: #d6d9db;
+  box-sizing: border-box;
 }
 
 #main-container {
@@ -17,8 +19,84 @@ body {
 }
 
 /* Left Sidebar */
+#left-sidebar-container {
+  padding: 5px 28px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .sidebar-button {
+  padding: 0px 20px 2px 14px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
   font-weight: 600;
   font-size: 20px;
-  height: 60px;
+  margin-bottom: 10px;
+  height: 50px;
+  color: #d6d9db;
+  border-radius: 30px;
+  width: fit-content;
+}
+
+.sidebar-button > img,
+.twitter-logo {
+  height: 36px;
+  width: 34px;
+}
+
+svg {
+  stroke-width: 0.1;
+  stroke: #d6d9db;
+  fill: #d6d9db;
+}
+
+.tweet-button {
+  height: 54px;
+  margin-top: 20px;
+  width: 100%;
+  background-color: #328cd8;
+  border: none;
+  border-radius: 30px;
+  justify-content: center;
+}
+
+.tweet-button:hover {
+  background-color: rgb(28, 132, 202);
+}
+
+.profile-container {
+  padding: 10px 18px 10px 14px;
+  border-radius: 30px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-container > div > h2,
+p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.profile-container > div > h2 {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.profile-container:hover,
+.sidebar-button:hover {
+  background-color: #202327;
+}
+
+.profile-image {
+  border-radius: 25px;
+  height: 40px;
+}
+
+.dots {
+  width: 26px;
 }

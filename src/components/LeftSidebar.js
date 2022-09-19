@@ -1,11 +1,21 @@
 import React from 'react';
 import SidebarButtons from './SidebarButtons';
+import twitter from '../sidebar-icons/twitter-logo.svg';
+import ProfileContainer from './ProfileContainer';
 
-const LeftSidebar = () => {
+const LeftSidebar = ({ userProfile }) => {
   return (
     <div id="left-sidebar-container">
-      <h1>Twitter Logo</h1>
-      <SidebarButtons />
+      <div>
+        <h1>
+          <img className="twitter-logo" alt="twitter logo" src={twitter} />
+        </h1>
+        <SidebarButtons />
+        <button className="sidebar-button tweet-button">Tweet</button>
+      </div>
+      <div>
+        <ProfileContainer userProfile={userProfile} />
+      </div>
     </div>
   );
 };
