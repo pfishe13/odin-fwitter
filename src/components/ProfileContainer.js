@@ -11,7 +11,7 @@ const ProfileContainer = ({ userProfile }) => {
         <p>@{userProfile.userName}</p>
       </div>
       <div>
-        <img className="dots" src={dots} />
+        <img alt="more" className="dots" src={dots} />
       </div>
     </div>
   );

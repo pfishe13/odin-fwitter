@@ -26,6 +26,10 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.twitter-logo {
+  padding-left: 16px;
+}
 .sidebar-button {
   padding: 0px 20px 2px 14px;
   display: flex;
@@ -62,10 +66,6 @@ svg {
   justify-content: center;
 }
 
-.tweet-button:hover {
-  background-color: rgb(28, 132, 202);
-}
-
 .profile-container {
   padding: 10px 18px 10px 14px;
   border-radius: 30px;
@@ -92,6 +92,10 @@ p {
   background-color: #202327;
 }
 
+.tweet-button:hover {
+  background-color: rgb(28, 132, 202);
+}
+
 .profile-image {
   border-radius: 25px;
   height: 40px;
@@ -99,4 +103,31 @@ p {
 
 .dots {
   width: 26px;
+}
+
+/* RIGHT SIDEBAR */
+.right-sidebar-container {
+  margin-top: 5px;
+}
+.right-sidebar-box {
+  margin: 8px 0 0 20px;
+  background-color: #202327;
+  border-radius: 25px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  padding: 0 14px;
+  height: 22px;
+}
+
+.right-sidebar-box > input {
+  font-size: 15px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  color: #71767b;
 }
