@@ -31,6 +31,7 @@ body {
   padding-left: 16px;
 }
 .sidebar-button {
+  cursor: pointer;
   padding: 0px 20px 2px 14px;
   display: flex;
   gap: 16px;
@@ -67,6 +68,8 @@ svg {
 }
 
 .profile-container {
+  cursor: pointer;
+
   padding: 10px 18px 10px 14px;
   border-radius: 30px;
   display: flex;
@@ -75,10 +78,16 @@ svg {
   margin-bottom: 10px;
 }
 
-.profile-container > div > h2,
+h4,
 p {
-  font-size: 13px;
+  color: #71767b;
+  font-size: 14px;
   margin: 0;
+  font-weight: 500;
+}
+h4 {
+  font-weight: 800;
+  font-size: 15px;
 }
 
 .profile-container > div > h2 {
@@ -92,17 +101,31 @@ p {
   background-color: #202327;
 }
 
+.profile-container > div:first-child {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 .tweet-button:hover {
   background-color: rgb(28, 132, 202);
 }
 
 .profile-image {
   border-radius: 25px;
-  height: 40px;
+  height: 44px;
 }
 
 .dots {
   width: 26px;
+}
+
+.profile-header > h4 {
+  color: #d6d9db;
+}
+
+.profile-header > h4:hover {
+  text-decoration: underline;
 }
 
 /* RIGHT SIDEBAR */
@@ -110,9 +133,9 @@ p {
   margin-top: 5px;
 }
 .right-sidebar-box {
-  margin: 8px 0 0 20px;
+  margin: 12px 0 0 28px;
   background-color: #202327;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
 .search-box {
@@ -130,4 +153,58 @@ p {
   background-color: transparent;
   border: none;
   color: #71767b;
+}
+
+.event,
+.follow {
+  cursor: pointer;
+  font-size: 14px;
+  color: #71767b;
+  padding: 16px 20px;
+  border-radius: 0;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #e7e9ea;
+  padding-top: 14px;
+  margin: 0 20px 5px;
+}
+.event > h3 {
+  color: #e7e9ea;
+  margin: 2px 0;
+  font-weight: 800;
+}
+
+.event:hover,
+.follow:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.follow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.follow-button {
+  cursor: pointer;
+
+  justify-self: end;
+  border-radius: 25px;
+  background-color: #e7e9ea;
+  color: black;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.follow-button:hover {
+  background-color: rgb(215, 219, 220);
+}
+
+.show-more {
+  color: rgb(29, 155, 240);
+  font-weight: 500;
 }
