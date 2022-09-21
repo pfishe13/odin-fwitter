@@ -11,7 +11,9 @@ const LeftSidebar = ({ userProfile }) => {
           <img className="twitter-logo" alt="twitter logo" src={twitter} />
         </h1>
         <SidebarButtons />
-        <button className="sidebar-button tweet-button">Tweet</button>
+        <button className="large-tweet-button sidebar-button tweet-button">
+          Tweet
+        </button>
       </div>
       <div>
         <ProfileContainer userProfile={userProfile} />

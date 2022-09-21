@@ -5,6 +5,7 @@ import justin from '../images/justin.jpeg';
 import lebron from '../images/lebron.jpeg';
 import cr from '../images/cr.jpeg';
 import ShowMoreButton from './ShowMoreButton';
+import SmallButton from './SmallButton';
 
 const WhoToFollow = () => {
   const profiles = [
@@ -22,7 +23,8 @@ const WhoToFollow = () => {
               <ProfileImage imageSource={profile.profilePicture} />
               <ProfileHeader profile={profile} />
             </div>
-            <button className="follow-button">Follow</button>
+            {/* <button className="follow-button small-button">Follow</button> */}
+            <SmallButton classToAdd={'follow-button'} text={'Follow'} />
           </div>
         );
       })}

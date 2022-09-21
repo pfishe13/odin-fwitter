@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <LeftSidebar userProfile={userProfile} />
-      <Main />
+      <Main userProfile={userProfile} />
       <RightSidebar />
     </div>
   );
