@@ -3,18 +3,33 @@ import ProfileImage from './ProfileImage';
 import TweetButton from './SmallButton';
 import imageIcon from '../images/image.svg';
 
-const ComposeTweet = ({ userProfile }) => {
+const ComposeTweet = ({
+  currentTweet,
+  userProfile,
+  handleTweetTextChange,
+  submitTweet,
+}) => {
   return (
     <div className="compose-tweet-container">
       <ProfileImage imageSource={userProfile.profilePicture} />
       <div>
-        <div className="compose-input-container">
-          <textarea placeholder="What's happening?" />
-        </div>
-        <div className="compose-footer">
-          <img alt="icon of camera role" src={imageIcon} />
-          <TweetButton classToAdd={'tweet-button'} text={'Tweet'} />
-        </div>
+        <form onSubmit={submitTweet}>
+          <div className="compose-input-container">
+            <textarea
+              placeholder="What's happening?"
+              onChange={handleTweetTextChange}
+              value={currentTweet.text}
+            />
+          </div>
+          <div className="compose-footer">
+            <img alt="icon of camera role" src={imageIcon} />
+            <TweetButton
+              type="submit"
+              classToAdd={'tweet-button'}
+              text={'Tweet'}
+            />
+          </div>
+        </form>
       </div>
     </div>
   );

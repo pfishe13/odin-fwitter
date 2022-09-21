@@ -18,12 +18,11 @@ const WhoToFollow = () => {
       <h2>Who to follow</h2>
       {profiles.map((profile) => {
         return (
-          <div className="profile-container follow">
+          <div key={profile.name} className="profile-container follow">
             <div>
               <ProfileImage imageSource={profile.profilePicture} />
               <ProfileHeader profile={profile} />
             </div>
-            {/* <button className="follow-button small-button">Follow</button> */}
             <SmallButton classToAdd={'follow-button'} text={'Follow'} />
           </div>
         );
