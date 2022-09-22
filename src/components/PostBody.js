@@ -3,7 +3,7 @@ import React from 'react';
 const PostBody = ({ post }) => {
   return (
     <div>
-      <p>{post.text}</p>
+      <p className="post-text">{post.text}</p>
     </div>
   );
 };

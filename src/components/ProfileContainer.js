@@ -6,8 +6,10 @@ import ProfileHeader from './ProfileHeader';
 const ProfileContainer = ({ userProfile }) => {
   return (
     <div className="profile-container">
-      <ProfileImage imageSource={userProfile.profilePicture} />
-      <ProfileHeader profile={userProfile} />
+      <div>
+        <ProfileImage imageSource={userProfile.profilePicture} />
+        <ProfileHeader profile={userProfile} />
+      </div>
       <div>
         <img alt="more" className="dots" src={dots} />
       </div>

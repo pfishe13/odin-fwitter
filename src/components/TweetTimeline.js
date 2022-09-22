@@ -3,15 +3,20 @@ import ProfileContainer from './ProfileContainer';
 import PostBody from './PostBody';
 import PostInteractions from './PostInteractions';
 
-const TweetTimeline = ({ posts }) => {
+const TweetTimeline = ({ posts, handleLikeTweet, handleRetweetTweet }) => {
   return (
     <div>
       {posts.map((post, index) => {
         return (
-          <div className="post-container" key={index}>
+          <div className="post-container" key={post.id}>
             <ProfileContainer userProfile={post.profile} />
             <PostBody post={post.tweet} />
-            <PostInteractions interactions={post.tweet.interactions} />
+            <PostInteractions
+              interactions={post.tweet.interactions}
+              handleLikeTweet={handleLikeTweet}
+              handleRetweetTweet={handleRetweetTweet}
+              postID={post.id}
+            />
           </div>
         );
       })}

@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import ComposeTweet from './ComposeTweet';
 import db from '../firebase-config';
-import { collection, query, addDoc, getDocs } from 'firebase/firestore';
+import {
+  collection,
+  query,
+  addDoc,
+  getDocs,
+  orderBy,
+  updateDoc,
+  doc,
+  increment,
+} from 'firebase/firestore';
 import TweetTimeline from './TweetTimeline';
 
 const Main = ({ userProfile }) => {
@@ -18,18 +27,20 @@ const Main = ({ userProfile }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const q = query(collection(db, 'posts'));
-      const querySnapshot = await getDocs(q);
-      let dataArray = [];
-      querySnapshot.forEach((doc) => {
-        dataArray.push(doc.data());
-      });
-      setPosts([...dataArray]);
-      console.log(dataArray);
-    };
     fetchData();
   }, []);
+
+  const fetchData = async () => {
+    const q = query(collection(db, 'posts'), orderBy('time', 'desc'));
+    const querySnapshot = await getDocs(q);
+    let dataArray = [];
+    querySnapshot.forEach((doc) => {
+      const elementToAdd = { ...doc.data(), id: doc.id };
+      dataArray.push(elementToAdd);
+    });
+    setPosts([...dataArray]);
+    console.log(dataArray);
+  };
 
   const handleTweetTextChange = (e) => {
     const tweetContent = e.target.value;
@@ -48,14 +59,34 @@ const Main = ({ userProfile }) => {
 
     e.preventDefault();
     setCurrentTweet({ ...currentTweet, text: '' });
+    fetchData();
   };
 
   const addTweetToDatabase = async (user, tweet) => {
     console.log('Sending tweet');
-    const docRef = await addDoc(collection(db, 'posts'), {
+    await addDoc(collection(db, 'posts'), {
       profile: user,
       tweet: tweet,
+      time: new Date(),
     });
+  };
+
+  const handleLikeTweet = async (postID) => {
+    const tweetRef = doc(db, 'posts', postID);
+    await updateDoc(tweetRef, {
+      'tweet.interactions.likes': increment(1),
+    });
+
+    fetchData();
+  };
+
+  const handleRetweetTweet = async (postID) => {
+    const tweetRef = doc(db, 'posts', postID);
+    await updateDoc(tweetRef, {
+      'tweet.interactions.retweets': increment(1),
+    });
+
+    fetchData();
   };
 
   return (
@@ -69,7 +100,11 @@ const Main = ({ userProfile }) => {
         handleTweetTextChange={handleTweetTextChange}
         submitTweet={submitTweet}
       />
-      <TweetTimeline posts={posts} />
+      <TweetTimeline
+        posts={posts}
+        handleLikeTweet={handleLikeTweet}
+        handleRetweetTweet={handleRetweetTweet}
+      />
     </div>
   );
 };

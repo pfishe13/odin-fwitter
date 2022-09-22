@@ -12,10 +12,13 @@ body {
   background-color: #000000;
   color: #d6d9db;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 #main-container {
   border: 1.5px solid #202327;
+  cursor: pointer;
+  overflow: scroll;
 }
 
 /* Left Sidebar */
@@ -73,12 +76,11 @@ svg {
 
 .profile-container {
   cursor: pointer;
-
   padding: 10px 18px 10px 14px;
   border-radius: 30px;
   display: flex;
-  gap: 8px;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 2px;
 }
 
@@ -126,6 +128,7 @@ h4 {
 
 .profile-header > h4 {
   color: #d6d9db;
+  margin-bottom: 2px;
 }
 
 .profile-header > h4:hover {
@@ -267,7 +270,10 @@ h2 {
   gap: 7px;
 }
 
-.interactions > div > img {
+.interactions img {
+  border: 2px solid transparent;
+  padding: 6px;
+  border-radius: 17px;
   height: 20px;
   color: #202327;
 }
@@ -277,6 +283,49 @@ h2 {
   border-bottom: 1.5px solid #202327;
 }
 
+.interactions span {
+  color: #71767b;
+}
 .post-container > div:nth-last-child(-n + 2) {
   padding: 0px 18px 14px 14px;
+}
+
+.post-container > .profile-container:hover {
+  background-color: #000000;
+}
+
+.post-text {
+  color: white;
+  font-size: 16px;
+}
+
+.reply-button:hover,
+.share-button:hover {
+  filter: invert(67%) sepia(70%) saturate(5159%) hue-rotate(185deg)
+    brightness(92%) contrast(83%);
+  background-color: #328cd830;
+}
+
+.retweet-button:hover {
+  filter: invert(63%) sepia(30%) saturate(6801%) hue-rotate(122deg)
+    brightness(91%) contrast(101%);
+  background-color: #00ba7c30;
+}
+
+.like-button:hover {
+  filter: invert(28%) sepia(83%) saturate(6896%) hue-rotate(322deg)
+    brightness(102%) contrast(95%);
+  background-color: #f9188030;
+}
+
+.reply-container:hover span {
+  color: #328cd8;
+}
+
+.retweet-container:hover span {
+  color: #00ba7c;
+}
+
+.like-container:hover span {
+  color: #f91880;
 }
