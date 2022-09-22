@@ -79,7 +79,7 @@ svg {
   display: flex;
   gap: 8px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 h4,
@@ -218,7 +218,7 @@ h2 {
 
 /* Main Container */
 .compose-tweet-container {
-  padding: 20px;
+  padding: 20px 20px 4px 12px;
   display: flex;
   gap: 18px;
 }
@@ -254,4 +254,29 @@ h2 {
 
 .compose-footer > img {
   height: 24px;
+}
+
+.interactions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.interactions > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.interactions > div > img {
+  height: 20px;
+  color: #202327;
+}
+
+.post-container,
+.compose-tweet-container {
+  border-bottom: 1.5px solid #202327;
+}
+
+.post-container > div:nth-last-child(-n + 2) {
+  padding: 0px 18px 14px 14px;
 }

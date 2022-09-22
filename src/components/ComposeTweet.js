@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfileImage from './ProfileImage';
-import TweetButton from './SmallButton';
+import SmallButton from './SmallButton';
 import imageIcon from '../images/image.svg';
 
 const ComposeTweet = ({
@@ -23,7 +23,7 @@ const ComposeTweet = ({
           </div>
           <div className="compose-footer">
             <img alt="icon of camera role" src={imageIcon} />
-            <TweetButton
+            <SmallButton
               type="submit"
               classToAdd={'tweet-button'}
               text={'Tweet'}
