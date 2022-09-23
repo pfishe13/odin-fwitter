@@ -48,6 +48,11 @@ const Main = ({ userProfile }) => {
     // console.log('Tweet content', currentTweet.text);
   };
 
+  const handleTweetPhotoChange = (photo) => {
+    console.log(photo);
+    setCurrentTweet({ ...currentTweet, image: photo });
+  };
+
   const submitTweet = (e) => {
     if (currentTweet.text === null || currentTweet.text === '') return;
 
@@ -58,7 +63,7 @@ const Main = ({ userProfile }) => {
     addTweetToDatabase(userProfile, currentTweet);
 
     e.preventDefault();
-    setCurrentTweet({ ...currentTweet, text: '' });
+    setCurrentTweet({ ...currentTweet, text: '', image: null });
     fetchData();
   };
 
@@ -86,15 +91,6 @@ const Main = ({ userProfile }) => {
     fetchData();
   };
 
-  // const handleRetweetTweet = async (postID, inc) => {
-  //   const tweetRef = doc(db, 'posts', postID);
-  //   await updateDoc(tweetRef, {
-  //     'tweet.interactions.retweets': increment(inc),
-  //   });
-
-  //   fetchData();
-  // };
-
   return (
     <div id="main-container">
       <div>
@@ -104,6 +100,7 @@ const Main = ({ userProfile }) => {
         currentTweet={currentTweet}
         userProfile={userProfile}
         handleTweetTextChange={handleTweetTextChange}
+        handleTweetPhotoChange={handleTweetPhotoChange}
         submitTweet={submitTweet}
       />
       <TweetTimeline

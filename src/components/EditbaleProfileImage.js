@@ -52,6 +52,7 @@ const EditableProfileImage = ({ imageSource, handleProfilePictureChange }) => {
       );
     };
     file && uploadFile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file]);
   return (
     <>
