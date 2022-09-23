@@ -1,9 +1,14 @@
 import React from 'react';
 import SidebarButtons from './SidebarButtons';
 import twitter from '../sidebar-icons/twitter-logo.svg';
-import ProfileContainer from './ProfileContainer';
+import EditableProfile from './EditableProfile';
 
-const LeftSidebar = ({ userProfile }) => {
+const LeftSidebar = ({
+  userProfile,
+  handleProfileNameChange,
+  handleProfileUserNameChange,
+  handleProfilePictureChange,
+}) => {
   return (
     <div id="left-sidebar-container">
       <div>
@@ -16,7 +21,12 @@ const LeftSidebar = ({ userProfile }) => {
         </button>
       </div>
       <div>
-        <ProfileContainer userProfile={userProfile} />
+        <EditableProfile
+          userProfile={userProfile}
+          handleProfileNameChange={handleProfileNameChange}
+          handleProfileUserNameChange={handleProfileUserNameChange}
+          handleProfilePictureChange={handleProfilePictureChange}
+        />
       </div>
     </div>
   );

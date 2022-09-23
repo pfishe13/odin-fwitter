@@ -12,9 +12,27 @@ function App() {
     profilePicture: twitterEgg,
   });
 
+  const handleProfileNameChange = (e) => {
+    setUserProfile({ ...userProfile, name: e.target.value });
+  };
+
+  const handleProfileUserNameChange = (e) => {
+    setUserProfile({ ...userProfile, userName: e.target.value });
+  };
+
+  const handleProfilePictureChange = (inp) => {
+    console.log(inp);
+    setUserProfile({ ...userProfile, profilePicture: inp });
+  };
+
   return (
     <div className="App">
-      <LeftSidebar userProfile={userProfile} />
+      <LeftSidebar
+        userProfile={userProfile}
+        handleProfileNameChange={handleProfileNameChange}
+        handleProfileUserNameChange={handleProfileUserNameChange}
+        handleProfilePictureChange={handleProfilePictureChange}
+      />
       <Main userProfile={userProfile} />
       <RightSidebar />
     </div>

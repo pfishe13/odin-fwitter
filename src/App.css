@@ -120,6 +120,7 @@ h4 {
 .profile-image {
   border-radius: 25px;
   height: 44px;
+  width: 44px;
 }
 
 .dots {
@@ -133,6 +134,38 @@ h4 {
 
 .profile-header > h4:hover {
   text-decoration: underline;
+}
+
+.profile-container input {
+  font-size: 13px;
+  color: #e7e9ea;
+  margin: 2px;
+  border-radius: 4px;
+  padding: 4px;
+  background-color: transparent;
+  border: none;
+  outline: 1px solid #328cd8;
+}
+
+.image-submit {
+  font-size: 13px;
+  background-color: #328cd8;
+  border: none;
+  border-radius: 6px;
+}
+
+.image-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image-form > div {
+  display: flex;
+  gap: 5px;
+}
+.image-form img {
+  height: 20px;
 }
 
 /* RIGHT SIDEBAR */
@@ -306,15 +339,23 @@ h2 {
   background-color: #328cd830;
 }
 
-.retweet-button:hover {
+.retweet-button:hover,
+.retweeted {
   filter: invert(63%) sepia(30%) saturate(6801%) hue-rotate(122deg)
     brightness(91%) contrast(101%);
+}
+
+.retweet-button:hover {
   background-color: #00ba7c30;
 }
 
-.like-button:hover {
+.like-button:hover,
+.liked {
   filter: invert(28%) sepia(83%) saturate(6896%) hue-rotate(322deg)
     brightness(102%) contrast(95%);
+}
+
+.like-button:hover {
   background-color: #f9188030;
 }
 

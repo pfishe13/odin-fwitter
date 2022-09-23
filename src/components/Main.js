@@ -39,21 +39,21 @@ const Main = ({ userProfile }) => {
       dataArray.push(elementToAdd);
     });
     setPosts([...dataArray]);
-    console.log(dataArray);
+    // console.log(dataArray);
   };
 
   const handleTweetTextChange = (e) => {
     const tweetContent = e.target.value;
     setCurrentTweet({ ...currentTweet, text: tweetContent });
-    console.log('Tweet content', currentTweet.text);
+    // console.log('Tweet content', currentTweet.text);
   };
 
   const submitTweet = (e) => {
     if (currentTweet.text === null || currentTweet.text === '') return;
 
-    console.log(
-      `Submit Tweet from ${userProfile.name} with content ${currentTweet.text}`
-    );
+    // console.log(
+    //   `Submit Tweet from ${userProfile.name} with content ${currentTweet.text}`
+    // );
 
     addTweetToDatabase(userProfile, currentTweet);
 
@@ -71,23 +71,29 @@ const Main = ({ userProfile }) => {
     });
   };
 
-  const handleLikeTweet = async (postID) => {
+  const handleInteractionOnTweet = async (postID, inc, action) => {
     const tweetRef = doc(db, 'posts', postID);
-    await updateDoc(tweetRef, {
-      'tweet.interactions.likes': increment(1),
-    });
+    if (action === 'liked') {
+      await updateDoc(tweetRef, {
+        'tweet.interactions.likes': increment(inc),
+      });
+    } else {
+      await updateDoc(tweetRef, {
+        'tweet.interactions.retweets': increment(inc),
+      });
+    }
 
     fetchData();
   };
 
-  const handleRetweetTweet = async (postID) => {
-    const tweetRef = doc(db, 'posts', postID);
-    await updateDoc(tweetRef, {
-      'tweet.interactions.retweets': increment(1),
-    });
+  // const handleRetweetTweet = async (postID, inc) => {
+  //   const tweetRef = doc(db, 'posts', postID);
+  //   await updateDoc(tweetRef, {
+  //     'tweet.interactions.retweets': increment(inc),
+  //   });
 
-    fetchData();
-  };
+  //   fetchData();
+  // };
 
   return (
     <div id="main-container">
@@ -102,8 +108,7 @@ const Main = ({ userProfile }) => {
       />
       <TweetTimeline
         posts={posts}
-        handleLikeTweet={handleLikeTweet}
-        handleRetweetTweet={handleRetweetTweet}
+        handleInteractionOnTweet={handleInteractionOnTweet}
       />
     </div>
   );
