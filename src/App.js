@@ -4,6 +4,7 @@ import LeftSidebar from './components/LeftSidebar';
 import Main from './components/Main';
 import RightSidebar from './components/RightSidebar';
 import twitterEgg from './images/twitter-egg.webp';
+import InformationPopup from './components/InformationPopup';
 
 function App() {
   const [userProfile, setUserProfile] = useState({
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div className="App">
+      <InformationPopup />
       <LeftSidebar
         userProfile={userProfile}
         handleProfileNameChange={handleProfileNameChange}

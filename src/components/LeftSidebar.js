@@ -1,6 +1,7 @@
 import React from 'react';
 import SidebarButtons from './SidebarButtons';
 import twitter from '../sidebar-icons/twitter-logo.svg';
+import newTweet from '../sidebar-icons/new-tweet.svg';
 import EditableProfile from './EditableProfile';
 
 const LeftSidebar = ({
@@ -17,7 +18,8 @@ const LeftSidebar = ({
         </h1>
         <SidebarButtons />
         <button className="large-tweet-button sidebar-button tweet-button">
-          Tweet
+          <span>Tweet</span>
+          <img alt="tweet" src={newTweet} />
         </button>
       </div>
       <div>

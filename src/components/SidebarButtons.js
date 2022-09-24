@@ -49,7 +49,7 @@ const SidebarButtons = () => {
         return (
           <div className="sidebar-button" key={button.label}>
             <img alt={button.label} src={button.src} />
-            {button.label}
+            <span>{button.label}</span>
           </div>
         );
       })}

@@ -7,6 +7,8 @@
 }
 
 body {
+  box-sizing: border-box;
+
   display: flex;
   justify-content: center;
   background-color: #000000;
@@ -24,7 +26,7 @@ body {
 /* Left Sidebar */
 #left-sidebar-container {
   padding: 5px 28px;
-  height: 100vh;
+  height: 99vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -66,6 +68,10 @@ svg {
   width: 100%;
   border-radius: 30px;
   justify-content: center;
+}
+
+.large-tweet-button > img {
+  display: none;
 }
 
 .tweet-button {
@@ -169,8 +175,9 @@ h4 {
 }
 
 /* RIGHT SIDEBAR */
-.right-sidebar-container {
-  margin-top: 5px;
+#right-sidebar-container {
+  overflow: scroll;
+  padding-bottom: 20px;
 }
 .right-sidebar-box {
   margin: 12px 0 0 28px;
@@ -386,4 +393,135 @@ h2 {
 
 .like-container:hover span {
   color: #f91880;
+}
+
+.popup {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.popup-box > * {
+  padding: 8px;
+}
+
+.popup-box > span {
+  color: #f91880;
+}
+
+.popup-box {
+  position: relative;
+  width: 30%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  overflow: auto;
+}
+
+.popup-box + .click-here {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  left: 10%;
+  width: 88px;
+  height: 30px;
+}
+
+@media only screen and (max-width: 1250px) {
+  .App {
+    grid-template-columns: 100px 600px 350px;
+  }
+  /* Left sidebar collapse */
+  .sidebar-button span {
+    display: none;
+  }
+
+  .large-tweet-button {
+    padding: 0;
+    width: 54px;
+    font-size: 12px;
+  }
+
+  .large-tweet-button > img {
+    display: block;
+  }
+
+  #left-sidebar-container .profile-header,
+  .dots {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .App {
+    grid-template-columns: 100px 600px;
+  }
+
+  .large-tweet-button {
+    width: 54px;
+  }
+
+  #left-sidebar-container .profile-header,
+  #left-sidebar-container .dots,
+  #right-sidebar-container {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .App {
+    grid-template-columns: auto 1fr;
+  }
+  /* Left sidebar collapse */
+  .sidebar-button span {
+    display: none;
+  }
+
+  .large-tweet-button {
+    width: 54px;
+  }
+
+  #left-sidebar-container {
+    padding: 0;
+  }
+
+  #left-sidebar-container > div:first-of-type {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #left-sidebar-container h1,
+  #left-sidebar-container div {
+    text-align: center;
+  }
+
+  .twitter-logo {
+    padding: 0;
+  }
+
+  .sidebar-button {
+    width: 100%;
+    padding: 0px 0px 2px 0px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .large-tweet-button {
+    width: 54px;
+  }
+
+  #left-sidebar-container .profile-header,
+  #left-sidebar-container .dots,
+  #right-sidebar-container {
+    display: none;
+  }
 }
