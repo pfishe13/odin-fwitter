@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/odin-fwitter/static/css/main.1841263c.css",
-    "main.js": "/odin-fwitter/static/js/main.9154d402.js",
+    "main.css": "/odin-fwitter/static/css/main.319c4ef4.css",
+    "main.js": "/odin-fwitter/static/js/main.a68938bf.js",
     "static/media/justin.jpeg": "/odin-fwitter/static/media/justin.d5c5d69ba5c64a4356b9.jpeg",
     "static/media/lebron.jpeg": "/odin-fwitter/static/media/lebron.7e5dc2a2ed716b7487f4.jpeg",
     "static/media/cr.jpeg": "/odin-fwitter/static/media/cr.1f7e0a95fd6245f155a8.jpeg",
@@ -24,13 +24,13 @@
     "static/media/bookmark.svg": "/odin-fwitter/static/media/bookmark.a80238d6dbf4236553f5911ba3e9b312.svg",
     "static/media/reply.svg": "/odin-fwitter/static/media/reply.01afa1353b101be33e2f154377525720.svg",
     "static/media/new-tweet.svg": "/odin-fwitter/static/media/new-tweet.337744bbd5c01a0a1d20696105299eb6.svg",
-    "static/media/close.svg": "/odin-fwitter/static/media/close.08233535a9321b39bf5f4a13e34fede0.svg",
-    "static/media/submit.svg": "/odin-fwitter/static/media/submit.aa0a208ac7ceea63d93ea0bae6ad7313.svg",
-    "main.1841263c.css.map": "/odin-fwitter/static/css/main.1841263c.css.map",
-    "main.9154d402.js.map": "/odin-fwitter/static/js/main.9154d402.js.map"
+    "static/media/close.svg": "/odin-fwitter/static/media/close.4b43d5268fb1ef9c638c273016168453.svg",
+    "static/media/submit.svg": "/odin-fwitter/static/media/submit.2d88e68fa0fa6100f0ee569d958a8880.svg",
+    "main.319c4ef4.css.map": "/odin-fwitter/static/css/main.319c4ef4.css.map",
+    "main.a68938bf.js.map": "/odin-fwitter/static/js/main.a68938bf.js.map"
   },
   "entrypoints": [
-    "static/css/main.1841263c.css",
-    "static/js/main.9154d402.js"
+    "static/css/main.319c4ef4.css",
+    "static/js/main.a68938bf.js"
   ]
 }
