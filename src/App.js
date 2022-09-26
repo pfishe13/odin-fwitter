@@ -16,7 +16,6 @@ function App() {
   const [openComposeBox, setOpenComposeBox] = useState(false);
 
   const toggleComposeTweetContainer = () => {
-    console.log('toggling');
     setOpenComposeBox(!openComposeBox);
   };
 
