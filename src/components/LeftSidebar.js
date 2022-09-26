@@ -9,6 +9,7 @@ const LeftSidebar = ({
   handleProfileNameChange,
   handleProfileUserNameChange,
   handleProfilePictureChange,
+  toggleComposeTweetContainer,
 }) => {
   return (
     <div id="left-sidebar-container">
@@ -17,7 +18,10 @@ const LeftSidebar = ({
           <img className="twitter-logo" alt="twitter logo" src={twitter} />
         </h1>
         <SidebarButtons />
-        <button className="large-tweet-button sidebar-button tweet-button">
+        <button
+          onClick={toggleComposeTweetContainer}
+          className="large-tweet-button sidebar-button tweet-button"
+        >
           <span>Tweet</span>
           <img alt="tweet" src={newTweet} />
         </button>

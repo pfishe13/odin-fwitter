@@ -16,11 +16,6 @@ const ComposeTweet = ({
   const [file, setFile] = useState(null);
   const [uploadedPhoto, setUploadedPhoto] = useState();
 
-  // const submitChanges = (e) => {
-  //   e.preventDefault();
-  //   toggleEditing();
-  // };
-
   const toggleEditing = (e) => {
     setEditing(!editing);
   };
@@ -28,34 +23,16 @@ const ComposeTweet = ({
   useEffect(() => {
     const uploadFile = () => {
       toggleEditing();
-      // const name = new Date().getTime() + file.name;
       const storageRef = ref(storage, file.name);
 
       const uploadTask = uploadBytesResumable(storageRef, file);
 
       uploadTask.on(
         'state_changed',
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload is ' + progress + '% done');
-          switch (snapshot.state) {
-            case 'paused':
-              console.log('Upload is paused');
-              break;
-            case 'running':
-              console.log('Upload is running');
-              break;
-            default:
-              break;
-          }
-        },
-        (error) => {
-          console.log(error);
-        },
+        (snapshot) => {},
+        (error) => {},
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log(downloadURL);
             handleTweetPhotoChange(downloadURL);
             setUploadedPhoto(downloadURL);
           });

@@ -12,8 +12,9 @@ import {
   increment,
 } from 'firebase/firestore';
 import TweetTimeline from './TweetTimeline';
+import close from '../images/close.svg';
 
-const Main = ({ userProfile }) => {
+const Main = ({ userProfile, openComposeBox, toggleComposeTweetContainer }) => {
   const [currentTweet, setCurrentTweet] = useState({
     text: '',
     image: null,
@@ -39,26 +40,19 @@ const Main = ({ userProfile }) => {
       dataArray.push(elementToAdd);
     });
     setPosts([...dataArray]);
-    // console.log(dataArray);
   };
 
   const handleTweetTextChange = (e) => {
     const tweetContent = e.target.value;
     setCurrentTweet({ ...currentTweet, text: tweetContent });
-    // console.log('Tweet content', currentTweet.text);
   };
 
   const handleTweetPhotoChange = (photo) => {
-    console.log(photo);
     setCurrentTweet({ ...currentTweet, image: photo });
   };
 
   const submitTweet = (e) => {
-    if (currentTweet.text === null || currentTweet.text === '') return;
-
-    // console.log(
-    //   `Submit Tweet from ${userProfile.name} with content ${currentTweet.text}`
-    // );
+    if (currentTweet.text === '' && currentTweet.image === null) return;
 
     addTweetToDatabase(userProfile, currentTweet);
 
@@ -68,7 +62,6 @@ const Main = ({ userProfile }) => {
   };
 
   const addTweetToDatabase = async (user, tweet) => {
-    console.log('Sending tweet');
     await addDoc(collection(db, 'posts'), {
       profile: user,
       tweet: tweet,
@@ -92,22 +85,43 @@ const Main = ({ userProfile }) => {
   };
 
   return (
-    <div id="main-container">
-      <div>
-        <h2>Home</h2>
+    <>
+      <div id="main-container">
+        <div>
+          <h2>Home</h2>
+        </div>
+        <ComposeTweet
+          currentTweet={currentTweet}
+          userProfile={userProfile}
+          handleTweetTextChange={handleTweetTextChange}
+          handleTweetPhotoChange={handleTweetPhotoChange}
+          submitTweet={submitTweet}
+        />
+        <TweetTimeline
+          posts={posts}
+          handleInteractionOnTweet={handleInteractionOnTweet}
+        />
       </div>
-      <ComposeTweet
-        currentTweet={currentTweet}
-        userProfile={userProfile}
-        handleTweetTextChange={handleTweetTextChange}
-        handleTweetPhotoChange={handleTweetPhotoChange}
-        submitTweet={submitTweet}
-      />
-      <TweetTimeline
-        posts={posts}
-        handleInteractionOnTweet={handleInteractionOnTweet}
-      />
-    </div>
+      {openComposeBox && (
+        <div className="popup">
+          <div className="compose-tweet-popup">
+            <div
+              className="sidebar-button"
+              onClick={toggleComposeTweetContainer}
+            >
+              <img alt="close" src={close} />
+            </div>
+            <ComposeTweet
+              currentTweet={currentTweet}
+              userProfile={userProfile}
+              handleTweetTextChange={handleTweetTextChange}
+              handleTweetPhotoChange={handleTweetPhotoChange}
+              submitTweet={submitTweet}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

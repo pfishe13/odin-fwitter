@@ -13,6 +13,13 @@ function App() {
     profilePicture: twitterEgg,
   });
 
+  const [openComposeBox, setOpenComposeBox] = useState(false);
+
+  const toggleComposeTweetContainer = () => {
+    console.log('toggling');
+    setOpenComposeBox(!openComposeBox);
+  };
+
   const handleProfileNameChange = (e) => {
     setUserProfile({ ...userProfile, name: e.target.value });
   };
@@ -22,7 +29,6 @@ function App() {
   };
 
   const handleProfilePictureChange = (inp) => {
-    console.log(inp);
     setUserProfile({ ...userProfile, profilePicture: inp });
   };
 
@@ -34,8 +40,13 @@ function App() {
         handleProfileNameChange={handleProfileNameChange}
         handleProfileUserNameChange={handleProfileUserNameChange}
         handleProfilePictureChange={handleProfilePictureChange}
+        toggleComposeTweetContainer={toggleComposeTweetContainer}
       />
-      <Main userProfile={userProfile} />
+      <Main
+        userProfile={userProfile}
+        openComposeBox={openComposeBox}
+        toggleComposeTweetContainer={toggleComposeTweetContainer}
+      />
       <RightSidebar />
     </div>
   );
